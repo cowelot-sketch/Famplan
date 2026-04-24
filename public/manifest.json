@@ -1,0 +1,27 @@
+{
+  "short_name": "FamPlan",
+  "name": "FamPlan – Family Calendar & Chores",
+  "description": "Family calendar, chore tracker, and reward system for kids",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0f0c29",
+  "background_color": "#0f0c29",
+  "scope": "/",
+  "categories": ["productivity", "lifestyle"],
+  "screenshots": []
+}

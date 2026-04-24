@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <!-- PWA / iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="FamPlan" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#0f0c29" />
+
+    <!-- SEO / sharing -->
+    <meta name="description" content="FamPlan – Family calendar, chore tracker and reward system" />
+    <meta property="og:title" content="FamPlan" />
+    <meta property="og:description" content="Family calendar, chore tracker and reward system for kids" />
+
+    <!-- Icons -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon-192.png" />
+    <link rel="icon" href="%PUBLIC_URL%/icon-192.png" />
+
+    <!-- Fonts preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+
+    <title>FamPlan</title>
+
+    <style>
+      /* Prevent iOS rubber-band scroll, status bar bleed */
+      * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+      html, body, #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overscroll-behavior: none;
+        background: #0f0c29;
+      }
+      /* iOS safe area insets */
+      body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+      }
+      /* Smooth scrolling everywhere */
+      * { -webkit-overflow-scrolling: touch; }
+      /* Hide scrollbars but keep scroll */
+      ::-webkit-scrollbar { width: 4px; height: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 99px; }
+      /* Date input styling on iOS */
+      input[type="date"] { -webkit-appearance: none; appearance: none; }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run FamPlan.</noscript>
+    <div id="root"></div>
+
+    <script>
+      // Register service worker for offline PWA
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
